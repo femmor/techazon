@@ -1,4 +1,5 @@
 import React from 'react';
+import { Switch, Route } from "react-router-dom"
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css"
 
@@ -13,8 +14,16 @@ import Default from "./pages/DefaultPage"
 
 function App() {
   return (
+    // Navbar, Sidebar, Cart, Footer
     <>
-        <h1>Techazon</h1>
+      <Switch>
+        <Route exact component={Home} path="/"/>
+        <Route component={About} path="/about"/>
+        <Route component={Contact} path="/contact-us"/>
+        <Route component={Products} path="/products"/>
+        <Route component={SingleProduct} path="/product/:id"/>
+        <Route component={Default} />
+    </Switch>
     </>
   );
 }
