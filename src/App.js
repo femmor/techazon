@@ -3,6 +3,12 @@ import { Switch, Route } from "react-router-dom"
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css"
 
+// Components
+import Navbar from "./components/Navbar"
+import Sidebar from "./components/Sidebar"
+import SideCart from "./components/SideCart"
+import Footer from "./components/Footer"
+
 // Pages
 import Home from "./pages/HomePage"
 import About from "./pages/AboutPage"
@@ -16,14 +22,19 @@ function App() {
   return (
     // Navbar, Sidebar, Cart, Footer
     <>
-      <Switch>
-        <Route exact component={Home} path="/"/>
-        <Route component={About} path="/about"/>
-        <Route component={Contact} path="/contact-us"/>
-        <Route component={Products} path="/products"/>
-        <Route component={SingleProduct} path="/product/:id"/>
-        <Route component={Default} />
-    </Switch>
+      <Navbar/>
+      <Sidebar/>
+      <SideCart/>
+        <Switch>
+            <Route exact component={Home} path="/"/>
+            <Route component={About} path="/about"/>
+            <Route component={Contact} path="/contact-us"/>
+            <Route component={Cart} path="/cart"/>
+            <Route component={Products} path="/products"/>
+            <Route component={SingleProduct} path="/product/:id"/>
+            <Route component={Default} />
+        </Switch>
+      <Footer/>
     </>
   );
 }
