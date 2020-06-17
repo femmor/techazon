@@ -4,3 +4,4 @@ bootstrap
 react-icons
 css variables
 google-fonts
+headless cms

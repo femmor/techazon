@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Switch, Route } from "react-router-dom"
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css"
@@ -18,10 +18,11 @@ import Products from "./pages/ProductsPage"
 import SingleProduct from "./pages/SingleProductPage"
 import Default from "./pages/DefaultPage"
 
-function App() {
-  return (
-    // Navbar, Sidebar, Cart, Footer
-    <>
+class App extends Component {
+  render() {
+    return(
+      // Navbar, Sidebar, Cart, Footer
+      <>
       <Navbar/>
       <Sidebar/>
       <SideCart/>
@@ -36,7 +37,8 @@ function App() {
         </Switch>
       <Footer/>
     </>
-  );
+    )
+  }
 }
 
 

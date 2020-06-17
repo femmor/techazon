@@ -1,9 +1,12 @@
 import React from 'react';
+import {ProductConsumer} from "../context"
 
 const HomePage = () => {
     return (
         <>
-           <h1>This is the home page</h1> 
+           <ProductConsumer>
+                { value => <h1>{value}</h1> }
+            </ProductConsumer> 
         </>
     );
 }
