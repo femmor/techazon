@@ -1,4 +1,5 @@
 import React from 'react';
+import { ProductConsumer } from "../context"
 
 const CartPage = () => {
     return (

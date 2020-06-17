@@ -5,8 +5,11 @@ const HomePage = () => {
     return (
         <>
            <ProductConsumer>
-                { value => <h1>{value}</h1> }
+                { value => { 
+                    console.log(value)
+                }}
             </ProductConsumer> 
+            <h1>Homepage</h1>
         </>
     );
 }
