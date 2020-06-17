@@ -2,25 +2,22 @@ import React from 'react';
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css"
 
-// FontAwesome
-import { FaHome } from "react-icons/fa"
-
-// Styled Component
-import styled from "styled-components"
+// Pages
+import Home from "./pages/HomePage"
+import About from "./pages/AboutPage"
+import Cart from "./pages/CartPage"
+import Contact from "./pages/ContactPage"
+import Products from "./pages/ProductsPage"
+import SingleProduct from "./pages/SingleProductPage"
+import Default from "./pages/DefaultPage"
 
 function App() {
   return (
     <>
-        <h1> <FaHome /> Techazon</h1>
-        <Button>Click Me</Button>
+        <h1>Techazon</h1>
     </>
   );
 }
 
-const Button = styled.button`
-  background: var(--primary-color);
-  color: var(--mainWhite);
-  font-size: ${(props) => props.large ? "3rem" : "inherit"};
-`
 
 export default App;
