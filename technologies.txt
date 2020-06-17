@@ -1,0 +1,6 @@
+create-react-app
+react-router-dom
+bootstrap
+react-icons
+css variables
+google-fonts
