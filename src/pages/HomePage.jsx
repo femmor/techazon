@@ -6,7 +6,6 @@ const HomePage = () => {
         <>
            <ProductConsumer>
                 { value => { 
-                    console.log(value)
                 }}
             </ProductConsumer> 
             <h1>Homepage</h1>
