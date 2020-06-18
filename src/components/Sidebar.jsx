@@ -9,12 +9,12 @@ const Sidebar = () => {
             {value => {
                 const { links, sidebarOpen, handleSidebar } = value
                 return (
-                    <SideWrapper>
+                    <SideWrapper show={sidebarOpen}>
                             <ul>
                             {links.map(link => {
                                     return(
                                         <li key={link.id} >
-                                            <Link to={link.path} className="sidebar-link">{link.text}</Link>
+                                            <Link to={link.path} className="sidebar-link" onClick={handleSidebar}>{link.text}</Link>
                                         </li>
                                     )
                                 })}
@@ -36,6 +36,7 @@ const SideWrapper = styled.nav`
     z-index: 1;
     border-right: 2px solid var(--primary-color);
     transition: var(--mainTransition);
+    transform: ${props => (props.show ? 'translateX(0)' : 'translateX(-100%)')};
 
     ul {
         list-style-type: none;
@@ -49,10 +50,18 @@ const SideWrapper = styled.nav`
         text-transform: capitalize;
         padding: 0.5rem 1.5rem;
         background: transparent;
+        transition: var(--mainTransition);
     }
 
     .sidebar-link:hover {
         text-decoration: none;
+        background: var(--primary-color);
+        color: var(--mainWhite);
+        padding: 0.5rem 1.5rem 0.5rem 2.5rem;
+    }
+
+    @media (min-width:576px) {
+        width: 20rem;
     }
 `
 
