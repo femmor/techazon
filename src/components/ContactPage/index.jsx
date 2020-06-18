@@ -3,7 +3,7 @@ import Title from "../Title"
 
 const Contact = () => {
     return (
-        <section className="py-5">
+        <section className="container py-5">
             <div className="row">
                 <div className="col-10 mx-auto col-md-6 my-3">
                     <Title title="We'd love to hear from you..."/>
