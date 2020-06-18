@@ -35,7 +35,7 @@ const NavWrapper = styled.nav`
     width: 100%;
     padding: 1rem 1.5rem;
     background: var(--mainWhite);
-    border-bottom: 3px solid var(--primary-color);
+    border-bottom: 3px solid var(--secondary-color);
 
     .nav-center {
         display: flex;
@@ -56,7 +56,7 @@ const NavWrapper = styled.nav`
 
     .cart-items {
         position: absolute;
-        background: var(--primary-color);
+        background: var(--mainYellow);
         color: var(--mainWhite);
         font-size: 0.85rem;
         top: -8px;
