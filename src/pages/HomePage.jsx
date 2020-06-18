@@ -1,14 +1,15 @@
 import React from 'react';
-import {ProductConsumer} from "../context"
+import { Link } from "react-router-dom"
+
+// Components
+import Hero from '../components/Hero';
 
 const HomePage = () => {
     return (
         <>
-           <ProductConsumer>
-                { value => { 
-                }}
-            </ProductConsumer> 
-            <h1>Homepage</h1>
+           <Hero title="innovative gadgets" max>
+               <Link to="/products">Products</Link>
+           </Hero>
         </>
     );
 }
