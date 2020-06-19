@@ -24,8 +24,72 @@ class ProductProvider extends Component {
         filteredProducts: [],
         featuredProducts: [],
         singleProduct: {},
-        loading: true
+        loading: false
     }
+
+    // Set Products
+    setProducts = (products) => {
+        // get all products
+        let storeProducts = products.map(item => {
+            const { id } = item.sys
+            const product = { id, ...item.fields }
+            return product
+        })
+        
+        // featured products
+        let featuredProducts = storeProducts.filter(item => item.featured) 
+        
+        // Set state
+        this.setState({
+            storeProducts,
+            filteredProducts: storeProducts,
+            featuredProducts,
+            cart: this.getStorageCart(),
+            singleProduct: this.getStorageProduct(),
+            loading: false
+        })
+    }
+
+    componentDidMount() {
+        // from contentful
+
+
+        this.setProducts(items)
+    }
+
+    // get cart from local storage
+    getStorageCart = () => {
+        return []
+    }
+
+    // get single product from local storage
+    getStorageProduct = () => {
+        return {}
+    }
+
+    // get totals 
+    getTotals = () => {
+
+    }
+
+    // add totals 
+    addTotals = () => {
+
+    }
+
+    // sync storage - called when we add item to cart
+    syncStorage = () => {} 
+
+    // add to cart
+    addToCart = (id) => {
+        console.log("add to cart "+id)
+    }
+
+    // set single product
+    setSingleProduct = (id) => {
+        console.log("set single product "+id)
+    }
+
 
     // handleSidebar
     handleSidebar = () => {
@@ -63,7 +127,9 @@ class ProductProvider extends Component {
                     handleSidebar: this.handleSidebar,
                     handleCart: this.handleCart,
                     openCart: this.openCart,
-                    closeCart: this.closeCart
+                    closeCart: this.closeCart,
+                    addToCart: this.addToCart,
+                    setSingleProduct: this.setSingleProduct,
                 }}>
                 {this.props.children}
             </ProductContext.Provider>
