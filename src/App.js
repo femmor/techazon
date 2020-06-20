@@ -32,7 +32,7 @@ class App extends Component {
             <Route component={Contact} path="/contact-us"/>
             <Route component={Cart} path="/cart"/>
             <Route component={Products} path="/products"/>
-            <Route component={SingleProduct} path="/product/:id"/>
+            <Route component={SingleProduct} exact path="/product/:id"/>
             <Route component={Default} />
         </Switch>
       <Footer/>

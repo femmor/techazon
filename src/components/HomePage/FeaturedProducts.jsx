@@ -22,6 +22,13 @@ const FeaturedProducts = () => {
                         }}
                     </ProductConsumer>
                 </div>
+                <div className="row">
+                    <div className="col text-center my-5">
+                        <Link to="/products" className="main-link">
+                            our products
+                        </Link>
+                    </div>
+                </div>
             </div>
         </section>
     );
