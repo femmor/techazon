@@ -53,8 +53,6 @@ class ProductProvider extends Component {
 
     componentDidMount() {
         // from contentful
-
-
         this.setProducts(items)
     }
 
