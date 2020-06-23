@@ -64,12 +64,18 @@ class ProductProvider extends Component {
 
     // get cart from local storage
     getStorageCart = () => {
-        return []
+        let cart
+        if(localStorage.getItem("cart")) {
+            cart = JSON.parse(localStorage.getItem("cart"))
+        } else {
+            cart = []
+        }
+        return cart
     }
 
     // get single product from local storage
     getStorageProduct = () => {
-        return {}
+        
     }
 
     // get totals 
@@ -113,7 +119,9 @@ class ProductProvider extends Component {
     }
 
     // sync storage - called when we add item to cart
-    syncStorage = () => {} 
+    syncStorage = () => {
+        localStorage.setItem("cart", JSON.stringify(this.state.cart));
+    } 
 
     // add to cart
     addToCart = (id) => {
