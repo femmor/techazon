@@ -14,14 +14,18 @@ class ProductProvider extends Component {
         cartOpen: false,
         links: linkData,
         socialIcons: socialData,
+        // items in the cart
         cart: [],
         // Product state items
         cartItems: 0,
         cartSubtotal: 0,
         cartTax: 0,
         cartTotal: 0,
+        // all products
         storeProducts: [],
+        // filtered products
         filteredProducts: [],
+        // featured products
         featuredProducts: [],
         singleProduct: {},
         loading: false
@@ -81,7 +85,36 @@ class ProductProvider extends Component {
 
     // add to cart
     addToCart = (id) => {
-        console.log("add to cart "+id)
+        // Get all the items from the cart
+        let tempCart = [...this.state.cart]
+        // Get all the products in the state
+        let tempProducts = [...this.state.storeProducts]
+        let tempItem = tempCart.find(item => item.id === id)
+        
+        // Check if the tempItem is not in the cart
+        if(!tempItem) {
+            tempItem = tempProducts.find(item => item.id === id)
+            // set total to the price of the tempItem
+            let total = tempItem.price
+            let cartItem = {...tempItem, count : 1, total}
+            tempCart = [...tempCart, cartItem]
+        } else {
+            // If the item is already in the cart
+            tempItem.count++
+            tempItem.total = tempItem.price * tempItem.count
+            tempItem.total = parseFloat(tempItem.total.toFixed(2))
+        }
+
+        // Set the state
+        this.setState(() => {
+            return {
+                cart: tempCart
+            }
+        }, () => {
+            this.addTotals()
+            this.syncStorage()
+            this.openCart()
+        })
     }
 
     // set single product
