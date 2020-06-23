@@ -52,6 +52,8 @@ class ProductProvider extends Component {
             cart: this.getStorageCart(),
             singleProduct: this.getStorageProduct(),
             loading: false
+        }, () => {
+            this.addTotals()
         })
     }
 
@@ -72,12 +74,42 @@ class ProductProvider extends Component {
 
     // get totals 
     getTotals = () => {
+        // Initialize the subTotal
+        let subTotal = 0
+        // Initialize the cartItems
+        let cartItems = 0
+        // Get all the totals in the cart
+        this.state.cart.forEach(item => {
+            subTotal += item.total
+            cartItems += item.count
+        })
 
+        subTotal = parseFloat(subTotal.toFixed(2))
+        // Calculate tax
+        let tax = subTotal * 0.2
+        tax = parseFloat(tax.toFixed(2))
+
+        // final cart total
+        let total = subTotal + tax
+        total = parseFloat(total.toFixed(2))
+
+        return {
+            cartItems,
+            subTotal,
+            tax,
+            total
+        }
     }
 
     // add totals 
     addTotals = () => {
-
+        const totals = this.getTotals()
+        this.setState({
+            cartItems: totals.cartItems,
+            cartSubtotal: totals.subTotal,
+            cartTax: totals.tax,
+            cartTotal: totals.total
+        })
     }
 
     // sync storage - called when we add item to cart
@@ -90,7 +122,7 @@ class ProductProvider extends Component {
         // Get all the products in the state
         let tempProducts = [...this.state.storeProducts]
         let tempItem = tempCart.find(item => item.id === id)
-        
+
         // Check if the tempItem is not in the cart
         if(!tempItem) {
             tempItem = tempProducts.find(item => item.id === id)
