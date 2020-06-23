@@ -28,7 +28,7 @@ class ProductProvider extends Component {
         // featured products
         featuredProducts: [],
         singleProduct: {},
-        loading: false
+        loading: true
     }
 
     // Set Products
@@ -64,7 +64,7 @@ class ProductProvider extends Component {
 
     // get cart from local storage
     getStorageCart = () => {
-        let cart
+        let cart;
         if(localStorage.getItem("cart")) {
             cart = JSON.parse(localStorage.getItem("cart"))
         } else {
@@ -75,7 +75,7 @@ class ProductProvider extends Component {
 
     // get single product from local storage
     getStorageProduct = () => {
-        
+        return localStorage.getItem("singleProduct") ? JSON.parse(localStorage.getItem("singleProduct")) : {}
     }
 
     // get totals 
@@ -159,7 +159,12 @@ class ProductProvider extends Component {
 
     // set single product
     setSingleProduct = (id) => {
-        console.log("set single product "+id)
+        let product = this.state.storeProducts.find(product => product.id === id)
+        localStorage.setItem("singleProduct", JSON.stringify(product))
+        this.setState({
+            singleProduct: {...product},
+            loading: false
+        })
     }
 
 
