@@ -11,7 +11,7 @@ const ProductContext = createContext()
 class ProductProvider extends Component {
     state = {
         sidebarOpen: false,
-        cartOpen: true,
+        cartOpen: false,
         links: linkData,
         socialIcons: socialData,
         // items in the cart
