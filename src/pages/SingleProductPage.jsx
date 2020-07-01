@@ -28,7 +28,7 @@ const SingleProductPage = () => {
                                                 <h5 className="text-capitalize text-muted mb-4">brand: {company}</h5>
                                                 <h5 className="text-main text-capitalize mb-4">price: ${price}</h5>
                                                 <h5 className="text-capitalize text-title">product details:</h5>
-                                                <p className=""><hr/> {description}</p>
+                                                <p className="">{description}</p>
                                                 <button type="button" className="main-link" style={{
                                                     margin: "0.7rem"
                                                 }} onClick={() => addToCart(id)}>
