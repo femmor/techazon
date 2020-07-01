@@ -45,6 +45,7 @@ const FooterWrapper = styled.div`
     .icon:hover {
         color: var(--mainYellow);
         cursor: pointer;
+    }
 `;
 
 export default Footer;
