@@ -244,7 +244,14 @@ class ProductProvider extends Component {
 
     // clearCart
     clearCart = () => {
-        console.log("cart cleared!")
+        // Set cart state to an empty array
+        this.setState({
+            cart: []
+        }, () => {
+            // add totals and store in local storage
+            this.addTotals()
+            this.syncStorage()
+        })
     }
 
     render() {
