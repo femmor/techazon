@@ -7,6 +7,14 @@ const ProductFilter = () => {
         <ProductConsumer>
             {value => {
                 const {handleChange, search, minPrice, maxPrice, price, company, storeProducts, shipping} = value
+
+                let companies = new Set()
+                companies.add("all products")
+                for(let product in storeProducts){
+                    companies.add(storeProducts[product]["company"])
+                }
+                companies = [...companies]                
+
                 return (
                     <div className="row my-5">
                         <div className="col-10 mx-auto">
@@ -21,9 +29,14 @@ const ProductFilter = () => {
                                     <div>
                                         <label htmlFor="company">search by brand</label>
                                         <select name="company" id="company" className="filter-item" onChange={handleChange} value={company}>
-                                            <option value="all">all</option>
-                                            <option value="samsung">samsung</option>
-                                            <option value="dell">dell</option>
+                                            {
+                                                companies.map((company, index) => {
+                                                    return (
+                                                        <option key={index} value={company}>{company}</option>
+                                                    )
+                                                })
+                                            }
+                                            
                                         </select>
                                     </div>
                                 {/* end category search */} 
@@ -38,7 +51,7 @@ const ProductFilter = () => {
                                 {/* free shipping */}
                                     <div>
                                         <label htmlFor="shipping" className="mx-2">free shipping</label>
-                                        <input type="checkbox" className="" value={shipping && true} id={shipping} onChange={handleChange}/>
+                                        <input type="checkbox" className="" checked={shipping && true} id={shipping} onChange={handleChange}/>
                                     </div>
                                 {/* end free shipping */}
                             </FilterWrapper>
