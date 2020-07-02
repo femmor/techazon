@@ -34,7 +34,7 @@ class ProductProvider extends Component {
         price: 0,
         min: 0,
         max: 0,
-        company: "All products",
+        company: "all",
         shipping: false
     }
 
@@ -309,7 +309,22 @@ class ProductProvider extends Component {
 
     // sortData method
     sortData = () => {
-        console.log("sorting data...")
+        // Destructure the filtering values needed from the state 
+        const { storeProducts, price, company, shipping, search } = this.state
+        // set tempProducts to a copy of the storeProducts
+        let tempProducts = [...storeProducts]
+
+        // Filter by brand functionality
+        // Filter company, check if it's not equal to all
+        if (company !== "all") {
+            // get the value from tempProducts
+            tempProducts = tempProducts.filter(item => item.company === company)
+        }
+
+        // Set filteredProducts to tempProduct
+        this.setState({
+            filteredProducts: tempProducts
+        })
     }
 
     render() {

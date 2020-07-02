@@ -9,7 +9,7 @@ const ProductFilter = () => {
                 const {handleChange, search, min, max, price, company, storeProducts, shipping} = value
 
                 let companies = new Set()
-                companies.add("all products")
+                companies.add("all")
                 for(let product in storeProducts){
                     companies.add(storeProducts[product]["company"])
                 }
