@@ -2,7 +2,6 @@ import React, { Component, createContext } from 'react';
 import { linkData } from "./linkData"
 import {socialData} from "./socialData"
 import { items } from "./productData"
-import {Toast} from 'bootstrap'
 
 const ProductContext = createContext()
 
@@ -229,7 +228,18 @@ class ProductProvider extends Component {
 
     // removeItem
     removeItem = (id) => {
-        console.log(id)
+        // Copy all products from the cart
+        let tempCart = [...this.state.cart]
+        // Filter-out products with id not equal to the particular id
+        tempCart = tempCart.filter(item => item.id !== id)
+        // Set state to the filtered products
+        this.setState({
+            cart: [...tempCart]
+        }, () => {
+            // add totals and store in local storage
+            this.addTotals()
+            this.syncStorage()
+        })
     }
 
     // clearCart
