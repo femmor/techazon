@@ -6,12 +6,18 @@ import CartTotal from "./CartTotals"
 
 const Cart = () => {
     return (
-        <div>
-            <Title />
-            <CartColumns/>
-            <CartList/>
-            <CartTotal/>
-        </div>
+        <section className="py-5">
+            {/* Title */}
+            <div className="container">
+                <Title title="shopping cart items" center/>
+            </div>
+                {/* Cart columns */}
+                <CartColumns/>
+                {/* Cart list */}
+                <CartList/>
+                {/* Cart totals */}
+                <CartTotal/>
+        </section>
     );
 }
 
