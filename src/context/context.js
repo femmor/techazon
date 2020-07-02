@@ -32,8 +32,8 @@ class ProductProvider extends Component {
         // product filter properties
         search: "",
         price: 0,
-        minPrice: 0,
-        maxPrice: 0,
+        min: 0,
+        max: 0,
         company: "All products",
         shipping: false
     }
@@ -53,10 +53,6 @@ class ProductProvider extends Component {
 
         // Get max price
         let maxPrice = Math.max(...storeProducts.map(item => item.price))
-
-        // Get min price
-        // let minPrice = Math.min(...storeProducts.map(item => item.price))
-        // console.log("Min price: "+minPrice)
         
         // Set state
         this.setState({
@@ -297,12 +293,23 @@ class ProductProvider extends Component {
 
     // handle change method
     handleChange = (e) => {
-        console.log(e)
+        // get the input values
+        const name = e.target.name
+        const value = e.target.type === "checkbox" 
+        ? e.target.checked 
+        : e.target.value
+        // Set the input name to the value
+        this.setState({
+            [name]: value
+        }, 
+            // call the sortData method
+            this.sortData
+        )
     }
 
     // sortData method
     sortData = () => {
-
+        console.log("sorting data...")
     }
 
     render() {

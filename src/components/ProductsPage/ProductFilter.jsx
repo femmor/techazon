@@ -6,7 +6,7 @@ const ProductFilter = () => {
     return (
         <ProductConsumer>
             {value => {
-                const {handleChange, search, minPrice, maxPrice, price, company, storeProducts, shipping} = value
+                const {handleChange, search, min, max, price, company, storeProducts, shipping} = value
 
                 let companies = new Set()
                 companies.add("all products")
@@ -45,13 +45,13 @@ const ProductFilter = () => {
                                         <label htmlFor="price">
                                             <p className="mb-2">filter by price: ${price}</p>
                                         </label>
-                                        <input type="range" className="filter-price" id="price" value={price} onChange={handleChange} min={minPrice} max={maxPrice}/>
+                                        <input type="range" className="filter-price" name="price" id="price" value={price} onChange={handleChange} min={min} max={max}/>
                                     </div>
                                 {/* end price range */}
                                 {/* free shipping */}
                                     <div>
                                         <label htmlFor="shipping" className="mx-2">free shipping</label>
-                                        <input type="checkbox" className="" checked={shipping && true} id={shipping} onChange={handleChange}/>
+                                        <input type="checkbox" name="shipping" id="shipping" checked={shipping && true} onChange={handleChange}/>
                                     </div>
                                 {/* end free shipping */}
                             </FilterWrapper>
