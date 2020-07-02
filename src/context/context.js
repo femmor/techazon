@@ -28,7 +28,14 @@ class ProductProvider extends Component {
         // featured products
         featuredProducts: [],
         singleProduct: {},
-        loading: true
+        loading: true,
+        // product filter properties
+        search: "",
+        price: 0,
+        minPrice: 0,
+        maxPrice: 0,
+        company: "All products",
+        shipping: false
     }
 
     // Set Products
@@ -43,6 +50,13 @@ class ProductProvider extends Component {
         
         // featured products
         let featuredProducts = storeProducts.filter(item => item.featured) 
+
+        // Get max price
+        let maxPrice = Math.max(...storeProducts.map(item => item.price))
+
+        // Get min price
+        // let minPrice = Math.min(...storeProducts.map(item => item.price))
+        // console.log("Min price: "+minPrice)
         
         // Set state
         this.setState({
@@ -51,7 +65,9 @@ class ProductProvider extends Component {
             featuredProducts,
             cart: this.getStorageCart(),
             singleProduct: this.getStorageProduct(),
-            loading: false
+            loading: false,
+            price: maxPrice,
+            max: maxPrice
         }, () => {
             this.addTotals()
         })
@@ -277,6 +293,18 @@ class ProductProvider extends Component {
         })
     }
 
+    // Product filtering functions
+
+    // handle change method
+    handleChange = (e) => {
+        console.log(e)
+    }
+
+    // sortData method
+    sortData = () => {
+
+    }
+
     render() {
         return (
             <ProductContext.Provider 
@@ -291,7 +319,8 @@ class ProductProvider extends Component {
                     increment: this.increment,
                     decrement: this.decrement,
                     removeItem: this.removeItem,
-                    clearCart: this.clearCart
+                    clearCart: this.clearCart,
+                    handleChange: this.handleChange
                 }}>
                 {this.props.children}
             </ProductContext.Provider>
