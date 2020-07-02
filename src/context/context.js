@@ -325,7 +325,10 @@ class ProductProvider extends Component {
             tempProducts = tempProducts.filter(item => item.company === company)
         }
 
-        
+        // Filter by free shipping functionality
+        if(shipping){
+            tempProducts = tempProducts.filter(item => item.freeShipping === true)
+        }
 
         // Set filteredProducts to tempProduct
         this.setState({
