@@ -8,6 +8,9 @@ const CartTotals = () => {
                 <ProductConsumer>
                     { value => {
                         const { cartTax, cartTotal, cartSubtotal, clearCart } = value
+                        if (cartSubtotal < 1) {
+                            return null
+                        }
                         return (
                             <div className="col text-title text-center my-4">
                                 <button className="btn btn-outline-danger text-capitalize mb-4" onClick={clearCart}>clear cart</button>

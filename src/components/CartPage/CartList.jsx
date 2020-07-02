@@ -19,7 +19,7 @@ const CartList = () => {
                                                 your cart is currently empty.
                                             </h5>
                                             <div className="text-center">
-                                                <Link to="/products" className="main-link">start shopping</Link>
+                                                <Link to="/products" className="main-link">go to store</Link>
                                             </div>
                                         </>
                                     )
