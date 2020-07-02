@@ -2,6 +2,7 @@ import React, { Component, createContext } from 'react';
 import { linkData } from "./linkData"
 import {socialData} from "./socialData"
 import { items } from "./productData"
+import {Toast} from 'bootstrap'
 
 const ProductContext = createContext()
 
@@ -200,7 +201,25 @@ class ProductProvider extends Component {
     
     // increment
     increment = (id) => {
-        console.log(id)
+        // Get all the products from the cart
+        let tempCart = [...this.state.cart]
+        // Get the particular item from the cart
+        const cartItem = tempCart.find(item => item.id === id)
+        // Increment the count
+        cartItem.count++
+        // Cart Total = count * price
+        cartItem.total = cartItem.count * cartItem.price
+        // convert the cart total to fixed in 2 decimal places with parse 
+        cartItem.total = parseFloat(cartItem.total.toFixed(2))
+        // set the cart state to temp cart and run the addTotal and syncStorage functions to persist the data
+        this.setState(() => {
+            return {
+                cart: [...tempCart]
+            }
+        }, () => {
+            this.addTotals()
+            this.syncStorage()
+        })
     }
 
     // decrement
