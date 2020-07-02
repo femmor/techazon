@@ -14,12 +14,12 @@ const Products = () => {
                         <div className="container">
                             {/* Title */}
                             <Title center title="All Products"/>
+                            {/* Product filter */}
+                            <ProductFilter />
                             {/* Products */}
                                 {/* row  */}
                                 <div className="row">
                                     <div className="col-10 mx-auto">
-                                        {/* Product filter */}
-                                        <ProductFilter />
                                         {/* Total count */}
                                         <h6 className="text-title">total products: 
                                             {filteredProducts.length}
@@ -33,7 +33,7 @@ const Products = () => {
                                         <div className="col text-center text-title">
                                             sorry no items match your search...
                                         </div>
-                                    ) : 
+                                    ) :  
                                     (
                                         filteredProducts.map(product => (
                                             <Product key={product.id} product={product}/>
