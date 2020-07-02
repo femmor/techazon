@@ -223,7 +223,30 @@ class ProductProvider extends Component {
 
     // decrement
     decrement = (id) => {
-        console.log(id)
+        // Get all the products from the cart
+        let tempCart = [...this.state.cart]
+        // Get the particular item from the cart
+        const cartItem = tempCart.find(item => item.id === id)
+        // Decrease the count by 1
+        cartItem.count = cartItem.count - 1
+        // Check if cartItem is 0
+        if(cartItem.count === 0) {
+            this.removeItem(id)
+        } else {
+            // Cart Total = count * price
+            cartItem.total = cartItem.count * cartItem.price
+            // convert the cart total to fixed in 2 decimal places with parse 
+            cartItem.total = parseFloat(cartItem.total.toFixed(2))
+
+            this.setState(() => {
+                return {
+                    cart: [...tempCart]
+                }
+            }, () => {
+                this.addTotals()
+                this.syncStorage()
+            })
+        }
     }
 
     // removeItem
