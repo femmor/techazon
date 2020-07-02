@@ -314,12 +314,18 @@ class ProductProvider extends Component {
         // set tempProducts to a copy of the storeProducts
         let tempProducts = [...storeProducts]
 
+        // Filter by price functionality
+        let tempPrice = parseInt(price)
+        tempProducts = tempProducts.filter(item => item.price <= tempPrice)
+
         // Filter by brand functionality
         // Filter company, check if it's not equal to all
         if (company !== "all") {
             // get the value from tempProducts
             tempProducts = tempProducts.filter(item => item.company === company)
         }
+
+        
 
         // Set filteredProducts to tempProduct
         this.setState({
