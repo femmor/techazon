@@ -330,6 +330,17 @@ class ProductProvider extends Component {
             tempProducts = tempProducts.filter(item => item.freeShipping === true)
         }
 
+        // Filter by search functionality
+        if(search.length > 0){
+            tempProducts = tempProducts.filter(item => {
+                let tempSearchTerm = search.toLowerCase()
+                let tempTitle = item.title.toLowerCase().slice(0, search.length)
+                if(tempSearchTerm === tempTitle){
+                    return item
+                }
+            })
+        }
+
         // Set filteredProducts to tempProduct
         this.setState({
             filteredProducts: tempProducts
