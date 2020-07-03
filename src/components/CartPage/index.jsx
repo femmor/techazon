@@ -4,7 +4,7 @@ import CartColumns from "./CartColumns"
 import CartList from "./CartList"
 import CartTotal from "./CartTotals"
 
-const Cart = () => {
+const CartSection = () => {
     return (
         <section className="py-5">
             {/* Title */}
@@ -21,4 +21,4 @@ const Cart = () => {
     );
 }
 
-export default Cart;
+export default CartSection;

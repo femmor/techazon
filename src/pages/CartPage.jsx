@@ -1,7 +1,7 @@
 import React from 'react';
 import Hero from "../components/Hero"
 import cartBcg from "../images/cartBcg.jpeg"
-import CartSection from "../components/CartPage"
+import CartSection from "../components/CartPage/index"
 
 const CartPage = () => {
     return (
