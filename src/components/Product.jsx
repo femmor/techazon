@@ -14,7 +14,7 @@ const Product = ({ product }) => {
                 <ProductWrapper className="col-10 mx-auto col-md-6 col-sm-8 col-lg-4 my-5">
                         <div className="card">
                             <div className="img-container">
-                                <img src={image} className="card-img-top p-5" alt="product image" style={{
+                                <img src={image} className="card-img-top p-5" alt="product" style={{
                                     height: "320px"
                                 }}/>
                                 <div className="product-icons">

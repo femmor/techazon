@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from "react-router-dom"
-import heroImg from "../images/mainBcg.jpeg"
 import Hero from "../components/Hero"
 import { ProductConsumer } from "../context"
 
@@ -21,7 +20,7 @@ const SingleProductPage = () => {
                                         <>
                                             <div className="col-10 col-md-6 col-sm-8 mx-auto my-3">
                                             {/* src = image from contentful */}
-                                            <img src={`../${image}`} alt="product image" className="img-fluid"/>
+                                            <img src={`../${image}`} alt="product" className="img-fluid"/>
                                             </div>
                                             <div className="col-10 col-md-6 col-sm-8 mx-auto my-3">
                                                 <h5 className="text-title mb-4">model: {title}</h5>

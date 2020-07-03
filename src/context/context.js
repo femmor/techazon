@@ -337,7 +337,8 @@ class ProductProvider extends Component {
                 let tempTitle = item.title.toLowerCase().slice(0, search.length)
                 if(tempSearchTerm === tempTitle){
                     return item
-                }
+                } 
+                return null
             })
         }
 

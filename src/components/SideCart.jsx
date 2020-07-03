@@ -7,16 +7,16 @@ const SideCart = () => {
     return (
         <ProductConsumer>
             {value => {
-                const { cartOpen, closeCart, cart, cartItems, cartTotal } = value
+                const { cartOpen, closeCart, cart, cartTotal } = value
                 return (
                     <CartWrapper show={cartOpen} onClick={closeCart}>
                         <ul>
                             {
                                 cart.map(item => {
-                                    const { id, title, price, image, count } = item
+                                    const { id, title, image, count } = item
                                     return (
                                         <li key={id} className="cart-item mb-4 ">
-                                            <img src={`../${image}`} alt="product image" className="img-fluid" width="35"/>
+                                            <img src={`../${image}`} alt="product" className="img-fluid" width="35"/>
                                             <div className="mt-3">
                                                 <h6 className="text-uppercase">{title}</h6>
                                                 <h6 className="text-title text-capitalize">amount: {count}</h6>
