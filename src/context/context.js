@@ -1,7 +1,8 @@
 import React, { Component, createContext } from 'react';
+import {client} from "./contentful"
 import { linkData } from "./linkData"
 import {socialData} from "./socialData"
-import { items } from "./productData"
+// import { items } from "./productData"
 
 const ProductContext = createContext()
 
@@ -34,7 +35,7 @@ class ProductProvider extends Component {
         price: 0,
         min: 0,
         max: 0,
-        company: "all",
+        company: "All Products",
         shipping: false
     }
 
@@ -71,7 +72,14 @@ class ProductProvider extends Component {
 
     componentDidMount() {
         // from contentful
-        this.setProducts(items)
+        client.getEntries({
+            content_type: 'techazonProducts'
+        })
+            .then((response) => this.setProducts(response.items))
+            .catch(console.error)
+
+        // from local productData
+        // this.setProducts(items)
     }
 
     // get cart from local storage
