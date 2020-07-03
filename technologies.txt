@@ -5,4 +5,4 @@ react-icons
 css variables
 google-fonts
 netlify
-headless cms
+headless cms - contentful
