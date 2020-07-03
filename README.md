@@ -37,11 +37,11 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 ### Technologies used
 
-create-react-app
-react-router-dom
-bootstrap
-react-icons
-css variables
-google-fonts
-netlify
-headless cms - contentful
+create-react-app,
+react-router-dom,
+bootstrap,
+react-icons,
+css variables,
+google-fonts,
+netlify,
+headless cms - contentful,
