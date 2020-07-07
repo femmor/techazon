@@ -6,3 +6,4 @@ css variables
 google-fonts
 netlify
 headless cms - contentful
+react-paypal-express

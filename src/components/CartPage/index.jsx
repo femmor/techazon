@@ -4,7 +4,7 @@ import CartColumns from "./CartColumns"
 import CartList from "./CartList"
 import CartTotal from "./CartTotals"
 
-const CartSection = () => {
+const CartSection = ({ history }) => {
     return (
         <section className="py-5">
             {/* Title */}
@@ -16,7 +16,7 @@ const CartSection = () => {
                 {/* Cart list */}
                 <CartList/>
                 {/* Cart totals */}
-                <CartTotal/>
+                <CartTotal history={history}/>
         </section>
     );
 }

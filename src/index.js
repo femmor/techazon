@@ -7,12 +7,10 @@ import App from './App';
 import { ProductProvider } from "./context"
 
 ReactDOM.render(
-  <React.StrictMode>
     <ProductProvider>
       <Router>
         <App />
       </Router>
-    </ProductProvider>
-  </React.StrictMode>,
+    </ProductProvider>,
   document.getElementById('root')
 );
