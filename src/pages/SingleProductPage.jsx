@@ -11,7 +11,7 @@ const SingleProductPage = () => {
                 const { title, price, company, id, description, image } = singleProduct
                 return (
                     <>
-                        <Hero img={`../${image}`} title={title} />
+                        <Hero img={image} title={title} />
                         <section className="py-5">
                             <div className="container">
                                 <div className="row">
@@ -20,7 +20,7 @@ const SingleProductPage = () => {
                                         <>
                                             <div className="col-10 col-md-6 col-sm-8 mx-auto my-3">
                                             {/* src = image from contentful */}
-                                            <img src={`../${image}`} alt="product" className="img-fluid"/>
+                                            <img src={image} alt="product" className="img-fluid"/>
                                             </div>
                                             <div className="col-10 col-md-6 col-sm-8 mx-auto my-3">
                                                 <h5 className="text-title mb-4">model: {title}</h5>

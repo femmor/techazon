@@ -16,7 +16,7 @@ const SideCart = () => {
                                     const { id, title, image, count } = item
                                     return (
                                         <li key={id} className="cart-item mb-4 ">
-                                            <img src={`../${image}`} alt="product" className="img-fluid" width="35"/>
+                                            <img src={image} alt="product" className="img-fluid" width="35"/>
                                             <div className="mt-3">
                                                 <h6 className="text-uppercase">{title}</h6>
                                                 <h6 className="text-title text-capitalize">amount: {count}</h6>
